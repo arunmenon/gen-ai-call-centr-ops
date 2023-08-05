@@ -1,6 +1,9 @@
 import React from 'react';
 import AgentSimulations from '../components/AgentSimulations';
-import { Box, Grid, Paper, Typography, Container, Card } from '@mui/material';
+import WeeklyLeaderboard from '../components/WeeklyLeaderBoard';
+import ScheduleSimulationForm from '../components/ScheduleSimulationForm';
+
+import { Box, Grid, Typography, Container, Card } from '@mui/material';
 
 const DashboardSection = ({ title, children }) => (
   <Card sx={{ bgcolor: 'background.default' }}>  // using the theme background color
@@ -22,12 +25,12 @@ const DashboardPage = () => (
       </Grid>
       <Grid item xs={12} md={6}>
         <DashboardSection title="Weekly Leaderboard">
-          This section could present a leaderboard that ranks agents based on their weekly simulation performance. Each row would display an agent's name, their rank, score, and change from the previous week.
+        <WeeklyLeaderboard />
         </DashboardSection>
       </Grid>
       <Grid item xs={12} md={6}>
         <DashboardSection title="Schedule Simulation">
-          Here, superusers could schedule new simulations. This could be a form where the superuser selects an agent, a scenario, a date and time, and other relevant details.
+        <ScheduleSimulationForm />
         </DashboardSection>
       </Grid>
     </Grid>

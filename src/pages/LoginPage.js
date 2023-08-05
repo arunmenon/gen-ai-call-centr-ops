@@ -22,6 +22,8 @@ const LoginPage = () => {
     setIsLoggedIn(true);
 
     navigate('/dashboard');
+    
+    
   };
 
   return (
