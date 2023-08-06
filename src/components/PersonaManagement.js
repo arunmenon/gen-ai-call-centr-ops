@@ -9,6 +9,8 @@ export default function PersonaManagement() {
   const [page, setPage] = React.useState(1);
   const itemsPerPage = 3;
   const [file, setFile] = React.useState(null);
+  const [uploadedFile, setUploadedFile] = React.useState(null);
+
 
 
   // Move personas data to local state
@@ -25,6 +27,14 @@ export default function PersonaManagement() {
     const uploadedFile = event.target.files[0];
     setFile(uploadedFile);
 };
+
+const handleUpload = (event) => {
+  const file = event.target.files[0];
+  if (!file) return; // No file was selected
+
+  setUploadedFile(file);
+};
+
 
 const generatePersonas = () => {
     if (!file) return;
@@ -121,34 +131,33 @@ const generatePersonas = () => {
         )}
         
         {value === 1 && (
-    <div style={{ padding: '20px' }}>
-        <Typography variant="h6" style={{ marginBottom: '20px', textAlign: 'center' }}>
-            Generate Personas from Chat Transcripts
-        </Typography>
-        <input
-            accept=".txt" // Accepting only .txt files for simplicity, you can modify this.
-            id="upload-chat-transcripts"
-            type="file"
-            style={{ display: 'none' }}
-            onChange={handleFileChange}
+  <div style={{ padding: '20px' }}>
+    <Typography variant="h6" gutterBottom>
+      Upload Chat Transcripts
+    </Typography>
+    <Grid container spacing={2} alignItems="center">
+      <Grid item xs={12} sm={8}>
+        <input 
+          accept="text/*" 
+          type="file" 
+          onChange={handleFileChange}
+          style={{ width: '100%', padding: '10px' }} 
         />
-        <label htmlFor="upload-chat-transcripts">
-            <Button variant="contained" color="primary" component="span">
-                Upload Chat Transcripts
-            </Button>
-        </label>
-        {file && <Typography variant="body1" style={{ marginTop: '20px' }}>File uploaded: {file.name}</Typography>}
-        <Button 
-            variant="contained" 
-            color="secondary" 
-            style={{ marginTop: '20px' }} 
-            onClick={generatePersonas}
-            disabled={!file}
-        >
-            Generate Personas
+      </Grid>
+      <Grid item xs={12} sm={2}>
+        <Button variant="contained" color="primary" onClick={handleUpload}>
+          Upload
         </Button>
-    </div>
+      </Grid>
+      <Grid item xs={12} sm={2}>
+        <Button variant="contained" color="secondary" onClick={generatePersonas}>
+          Generate Personas
+        </Button>
+      </Grid>
+    </Grid>
+  </div>
 )}
+
 
 
       </div>
