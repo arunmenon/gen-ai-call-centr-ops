@@ -7,7 +7,7 @@ export default function PersonaManagement() {
   const [value, setValue] = React.useState(0);
   const [searchTerm, setSearchTerm] = React.useState("");
   const [page, setPage] = React.useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 7;
   const [file, setFile] = React.useState(null);
   const [uploadedFile, setUploadedFile] = React.useState(null);
 
