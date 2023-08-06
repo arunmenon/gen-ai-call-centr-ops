@@ -21,7 +21,7 @@ const ScheduleSimulationForm = () => {
             options={Users}
             getOptionLabel={(option) => option}
             style={{ width: '100%' }}
-            renderInput={(params) => <TextField {...params} label="AI Agent" variant="outlined" />}
+            renderInput={(params) => <TextField {...params} label="Trainee" variant="outlined" />}
           />
         </Grid>
         <Grid item xs={12}>
