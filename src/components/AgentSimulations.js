@@ -39,7 +39,7 @@ function AgentSimulations() {
     <Container maxWidth="lg">
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Typography variant="h4" gutterBottom>Agent Assessment Scores</Typography>
+          <Typography variant="h5" gutterBottom>Agent Assessment Scores</Typography>
         </Grid>
         <Grid item xs={12}>
           <Card>
